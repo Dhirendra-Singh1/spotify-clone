@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spotify clone2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://kit.fontawesome.com/8a073aab63.js" crossorigin="anonymous"></script>
+
+<body>
+
+
+    <nav>
+        <ul>
+            <img src="image/logo.png" alt="logo">
+            <p><b>Spotify</b></p>
+            <p>Home</p>
+            <p>About</p>
+        </ul>
+    </nav>
+
+
+    <div class="container">
+
+        <div class="songList">
+            <h1>Best Of NCS-No Copyright Sounds</h1>
+            <div class="songItem">
+                <img src="image/covers/1.jpg" alt="cover1">
+                <span class="songName">First song</span>
+                <span class="songlistplay">05:34<i id="firstSong" class="fa-regular fa-circle-play"></i></span>
+            </div>
+            <div class="songItem">
+                <img src="image/covers/2.jpg" alt="cover1">
+                <span class="songName">Second song</span>
+                <span class="songlistplay">05:34<i id="secondSong" class="fa-regular fa-circle-play"></i></span>
+            </div>
+            <div class="songItem">
+                <img src="image/covers/3.jpg" alt="cover1">
+                <span class="songName">Third song</span>
+                <span class="songlistplay">05:34<i id="thirdSong" class="fa-regular fa-circle-play"></i></span>
+            </div>
+            <div class="songItem">
+                <img src="image/covers/4.jpg" alt="cover1">
+                <span class="songName">Fourth song</span>
+                <span class="songlistplay">05:34<i id="fourthSong" class="fa-regular fa-circle-play"></i></span>
+            </div>
+            <div class="songItem">
+                <img src="image/covers/5.jpg" alt="cover1">
+                <span class="songName">Fifth song</span>
+                <span class="songlistplay">05:34<i  id="fifthSong" class="fa-regular fa-circle-play"></i></span>
+            </div>
+            <div class="songItem">
+                <img src="image/covers/6.jpg" alt="cover1">
+                <span class="songName">Sixth song</span>
+                <span class="songlistplay">05:34<i id="sixthSong" class="fa-regular fa-circle-play"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom_container">
+        <div class="bottom">
+            <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-2x fa-backward-step"></i>
+            <i id="masterPlay" class="fa-regular fa-2x fa-circle-play"></i>
+            <i class="fa-solid fa-2x fa-forward-step"></i>
+            <div class="songInfo">
+                <img src="playing.gif" id="gif" width="42px" alt="">playing song
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        console.log("Welcome to spotify");
+        let song = [
+            { songName: "Love", filePath: "songs/1.mp3", coverPath: "covers/1.jpg" },
+            { songName: "Love", filePath: "songs/2.mp3", coverPath: "covers/2.jpg" },
+            { songName: "Love", filePath: "songs/3.mp3", coverPath: "covers/3.jpg" },
+            { songName: "Love", filePath: "songs/4.mp3", coverPath: "covers/4.jpg" },
+            { songName: "Love", filePath: "songs/5.mp3", coverPath: "covers/5.jpg" },
+            { songName: "Love", filePath: "songs/6.mp3", coverPath: "covers/6.jpg" },
+        ]
+           
+        let songIndex = 0;
+        let audioElement = new Audio("songs/1.mp3");
+        let audioElement2 = new Audio("songs/2.mp3");
+        let audioElement3 = new Audio("songs/3.mp3");
+        let audioElement4 = new Audio("songs/4.mp3");
+        let audioElement5 = new Audio("songs/5.mp3");
+        let audioElement6 = new Audio("songs/6.mp3");
+        let songItem = document.getElementsByClassName('songItem');
+        let masterPlay = document.getElementById("masterPlay");
+        let myProgressBar = document.getElementById("myProgressBar");
+        let firstSong = document.getElementById('firstSong');
+        let secondSong = document.getElementById('secondSong');
+        let thirdSong = document.getElementById('thirdSong');
+        let fourthSong = document.getElementById('fourthSong');
+        let fifthSong = document.getElementById('fifthSong');
+        let sixthSong = document.getElementById('sixthSong');
+        
+
+        firstSong.addEventListener('click', ()=>{
+            if (audioElement.paused || audioElement.currentTime <= 0) {
+                audioElement.play();
+                firstSong.classList.remove("fa-circle-play");
+                firstSong.classList.add("fa-pause-circle");
+                gif.style.opacity = 1;
+            }
+            else {
+                audioElement.pause();
+                firstSong.classList.add("fa-circle-play");
+                firstSong.classList.remove("fa-pause-circle");
+                gif.style.opacity = 0;
+            }
+
+        })
+        secondSong.addEventListener('click', ()=>{
+            if (audioElement2.paused || audioElement2.currentTime <= 0) {
+                audioElement2.play();
+                secondSong.classList.remove("fa-circle-play");
+                secondSong.classList.add("fa-pause-circle");
+                gif.style.opacity = 1;
+            }
+            else {
+                audioElement2.pause();
+                secondSong.classList.add("fa-circle-play");
+                secondSong.classList.remove("fa-pause-circle");
+                gif.style.opacity = 0;
+            }
+
+        })
+
+        thirdSong.addEventListener('click', ()=>{
+            if (audioElement3.paused || audioElement3.currentTime <= 0) {
+                audioElement3.play();
+                thirdSong.classList.remove("fa-circle-play");
+                thirdSong.classList.add("fa-pause-circle");
+                gif.style.opacity = 1;
+            }
+            else {
+                audioElement3.pause();
+                thirdSong.classList.add("fa-circle-play");
+                thirddSong.classList.remove("fa-pause-circle");
+                gif.style.opacity = 0;
+            }
+
+        })
+
+        fourthSong.addEventListener('click', ()=>{
+            if (audioElement4.paused || audioElement4.currentTime <= 0) {
+                audioElement4.play();
+                fourthSong.classList.remove("fa-circle-play");
+                fourthSong.classList.add("fa-pause-circle");
+                gif.style.opacity = 1;
+            }
+            else {
+                audioElement4.pause();
+                fourthSong.classList.add("fa-circle-play");
+                fourthSong.classList.remove("fa-pause-circle");
+                gif.style.opacity = 0;
+            }
+
+        })
+
+        fifthSong.addEventListener('click', ()=>{
+            if (audioElement5.paused || audioElement5.currentTime <= 0) {
+                audioElement5.play();
+                fifthSong.classList.remove("fa-circle-play");
+                fifthSong.classList.add("fa-pause-circle");
+                gif.style.opacity = 1;
+            }
+            else {
+                audioElement5.pause();
+                fifthSong.classList.add("fa-circle-play");
+                fifthSong.classList.remove("fa-pause-circle");
+                gif.style.opacity = 0;
+            }
+
+        })
+
+        sixthSong.addEventListener('click', ()=>{
+            if (audioElement6.paused || audioElement6.currentTime <= 0) {
+                audioElement6.play();
+                sixthSong.classList.remove("fa-circle-play");
+                sixthSong.classList.add("fa-pause-circle");
+                gif.style.opacity = 1;
+            }
+            else {
+                audioElement6.pause();
+                sixthSong.classList.add("fa-circle-play");
+                sixthSong.classList.remove("fa-pause-circle");
+                gif.style.opacity = 0;
+            }
+
+        })
+
+
+        audioElement.addEventListener('timeupdate', () => {
+            
+            progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
+            
+            myProgressBar.value = progress;
+        })
+
+        masterPlay.addEventListener('click', () => {
+            if (audioElement.paused || audioElement.currentTime <= 0) {
+                audioElement.play();
+                masterPlay.classList.remove("fa-circle-play");
+                masterPlay.classList.add("fa-pause-circle");
+                gif.style.opacity = 1;
+            }
+            else {
+                audioElement.pause();
+                masterPlay.classList.add("fa-circle-play");
+                masterPlay.classList.remove("fa-pause-circle");
+                gif.style.opacity = 0;
+            }
+        })
+
+        myProgressBar.addEventListener('change',()=>{
+            audioElement.currentTime = (myProgressBar.value*audioElement.duration)/100;
+        })
+    </script>
+</body>
+</html>
